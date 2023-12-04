@@ -65,10 +65,3 @@ The output format can be adjusted using configuration options provided by the co
 
 See [this article](https://conduit.io/docs/connectors/output-formats) for more info
 on configuring the output format.
-
-### Batching
-
-Batching can also be configured using connector SDK provided options:
-
-- `sdk.batch.size`: maximum number of records in batch before it gets written to the destination (defaults to 0, no batching)
-- `sdk.batch.delay`: maximum delay before an incomplete batch is written to the destination (defaults to 0, no limit)
