@@ -35,18 +35,6 @@ var _ Producer = (*PulsarProducer)(nil)
 
 func NewPulsarProducer(ctx context.Context, cfg Config) (*PulsarProducer, error) {
 	opts := cfg.PulsarClientOpts(sdk.Logger(ctx))
-	// opts = append(opts, []kgo.Opt{
-	// 	kgo.AllowAutoTopicCreation(),
-	// 	kgo.DefaultProduceTopic(cfg.Topic),
-	// 	kgo.RecordDeliveryTimeout(cfg.DeliveryTimeout),
-	// 	kgo.RequiredAcks(cfg.RequiredAcks()),
-	// 	kgo.ProducerBatchMaxBytes(cfg.BatchBytes),
-	// }...)
-
-	// if cfg.RequiredAcks() != kgo.AllISRAcks() {
-	// 	sdk.Logger(ctx).Warn().Msgf("disabling idempotent writes because \"acks\" is set to %v", cfg.Acks)
-	// 	opts = append(opts, kgo.DisableIdempotentWrite())
-	// }
 
 	cli, err := pulsar.NewClient(opts)
 	if err != nil {
